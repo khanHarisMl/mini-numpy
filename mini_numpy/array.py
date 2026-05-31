@@ -1,7 +1,7 @@
 class MiniArray:
     def __init__(self, data):
         self.data = data
-        
+
     def __len__(self):
         return len(self.data)
     
@@ -24,7 +24,7 @@ class MiniArray:
     
     def mean(self):
         if len(self.data) == 0:
-            print("Error, empty input array, cannot calculate mean")
+            print("Error, empty input array cannot calculate mean")
         i = 0
         sum = 0
         while i < len(self.data):
@@ -34,7 +34,7 @@ class MiniArray:
     
     def min(self):
         if len(self.data) == 0:
-            print("Error, empty input array, cannot calculate minimum")
+            print("Error, empty input array cannot calculate minimum")
             return None
         i = 1
         curr_min = self.data[0]
@@ -46,7 +46,7 @@ class MiniArray:
 
     def max(self):
         if len(self.data) == 0:
-            print("Error, empty input array, cannot calculate maximum")
+            print("Error, empty input array cannot calculate maximum")
             return None
         i = 1
         curr_max = self.data[0]
@@ -56,3 +56,66 @@ class MiniArray:
             i += 1
         return curr_max
     
+    def add(self, other):
+        sum_arr = MiniArray([0] * len(self.data))
+        if (len(self.data) != len(other.data)):
+            print("Error, Arrays are not the same length")
+            return None
+        elif(len(self.data) == 0):
+            print("Error, empty input array cannot add")
+            return None
+        else:
+            i = 0
+            while i < len(self.data):
+                sum_arr.data[i] = self.data[i] + other.data[i]
+                i += 1
+            return sum_arr
+
+    def subtract(self, other):
+        final_arr = MiniArray([0] * len(self.data))
+        if(len(self.data) != len(other.data)):
+            print("Error, Arrays are not the same length")
+            return None
+        elif(len(self.data) == 0):
+            print("Error! empty input array cannot subtract")
+            return None
+        else: 
+            i = 0
+            while i < len(self.data):
+                final_arr.data[i] = self.data[i] - other.data[i]
+                i += 1
+            return final_arr
+
+    def multiply(self, other):
+        final_arr = MiniArray([0] * len(self.data))
+        if(len(self.data) != len(other.data)):
+            print("Error, Arrays are not the same length")
+            return None
+        elif(len(self.data) == 0):
+            print("Error! empty input array cannot multiply")
+            return None
+        else:
+            i = 0
+            while i < len(self.data):
+                final_arr.data[i] = self.data[i] * other.data[i]
+                i += 1
+            return final_arr
+        
+    def divide(self, other):
+        final_arr = MiniArray([0] * len(self.data))
+        if(len(self.data) != len(other.data)):
+            print("Error, Arrays are not the same length")
+            return None
+        elif(len(self.data) == 0):
+            print("Error, empty input array cannot divide")
+            return None
+        else:
+            i = 0
+            while i < len(self.data):
+                if other.data[i] == 0:
+                    print("Error! Division by 0 is undefiend")
+                    return None
+                final_arr.data[i] = self.data[i] / other.data[i]
+                i += 1
+            return final_arr
+        

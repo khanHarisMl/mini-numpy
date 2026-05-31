@@ -23,7 +23,7 @@ Step 2 Basic Array Operations: Impliment the Following Functions:
     min()
     max()
 
-Step 3 Element Operations: Impliment the Following Functions: 
+Step 3 Element-wise Operations: Impliment the Following Functions: 
     add()
     subtract()
     multiply()
