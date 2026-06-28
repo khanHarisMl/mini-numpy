@@ -15,8 +15,17 @@ class MiniArray:
         self.data.append(value)
     
     def sum(self):
-        i = 0
         sum = 0
+        i = 0
+        if self.is_2d():
+            row = 0
+            while row < len(self.data):
+                column = 0
+                while column < len(self.data[row]):
+                    sum += self.data[row][column]
+                    column += 1
+                row += 1
+            return sum
         while i < len(self.data):
             sum += self.data[i]
             i += 1
@@ -25,12 +34,24 @@ class MiniArray:
     def mean(self):
         if len(self.data) == 0:
             print("Error, empty input array cannot calculate mean")
+            return None
         i = 0
         sum = 0
+        count = 0
+        if self.is_2d():
+            row = 0
+            while row < len(self.data):
+                column = 0
+                while column < len(self.data[row]):
+                    sum += self.data[row][column]
+                    count += 1
+                    column += 1
+                row += 1
+            return sum / count
         while i < len(self.data):
             sum += self.data[i]
             i += 1
-        return sum/i
+        return sum / i
     
     def min(self):
         if len(self.data) == 0:
@@ -118,4 +139,13 @@ class MiniArray:
                 final_arr.data[i] = self.data[i] / other.data[i]
                 i += 1
             return final_arr
-        
+    
+    def is_2d(self):
+        return len(self.data) > 0 and isinstance(self.data[0], list)
+    
+    def shape(self):
+        if not self.is_2d():
+            return(len(self.data[0]), )
+        rows = len(self.data)
+        columns = len(self.data[0])
+        return(rows, columns)
