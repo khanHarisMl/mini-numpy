@@ -1,3 +1,9 @@
+TO DO:
+- Clean up code: Spelling errors and stylistic preferences
+- Update ReadME
+- Final push to github: Completed Project 1
+- Research Backend API Project 
+
 # Mini NumPy
 This is a simple implimentation of the Python NumPy library.
 
